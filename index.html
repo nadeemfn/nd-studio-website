@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ND Studio | Residential Architectural Services</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    .nav-link { position: relative; }
+    .nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1px; background: #fff; transition: width 0.3s ease; }
+    .nav-link:hover::after { width: 100%; }
+    .service-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .service-card:hover { transform: translateY(-4px); box-shadow: 0 20px 60px -10px rgba(0,0,0,0.15); }
+  </style>
+</head>
+<body class="bg-white text-slate-900">
+
+  <!-- NAV -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-[#1a1a1a]/95 backdrop-blur-sm border-b border-white/5" style="isolation: isolate;">
+    <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+      <a href="#" class="flex flex-col items-center">
+        <img src="data:image/jpeg;base64,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" alt="ND Studio" class="h-20 w-auto" style="filter: invert(1); mix-blend-mode: screen;" /><span class="text-white/70 text-[9px] font-semibold tracking-[0.35em] uppercase -mt-1">Studio</span>
+      </a>
+      <div class="flex items-center gap-8">
+        <a href="#services" class="nav-link text-white/70 hover:text-white text-xs font-semibold uppercase tracking-widest transition-colors">Services</a>
+        <a href="#contact" class="nav-link text-white/70 hover:text-white text-xs font-semibold uppercase tracking-widest transition-colors">Contact</a>
+        <a href="#contact" class="ml-4 bg-white text-[#1a1a1a] px-6 py-2.5 text-xs font-black uppercase tracking-widest hover:bg-slate-100 transition-colors rounded-sm">
+          Get a Quote
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="bg-[#1a1a1a] pt-40 pb-32 px-6 relative overflow-hidden">
+    <!-- Subtle grid texture -->
+    <div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px); background-size: 60px 60px;"></div>
+
+    <div class="max-w-7xl mx-auto relative z-10">
+      <div class="max-w-3xl">
+        <span class="text-white/40 text-[10px] font-black uppercase tracking-[0.4em] mb-6 block">Residential Architecture Studio</span>
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-8 tracking-tight leading-none">
+          Residential<br />Architecture,<br /><span class="text-white/40">Delivered with</span><br />Precision.
+        </h1>
+        <p class="text-white/50 text-base font-medium mb-12 max-w-lg leading-relaxed">
+          Your trusted partner for permit-ready architectural drawings, BIM modeling, and energy compliance — serving clients across the US, Canada, and UK.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="#contact" class="inline-block bg-white text-[#1a1a1a] px-10 py-4 text-xs font-black uppercase tracking-widest hover:bg-slate-100 transition rounded-sm shadow-2xl">
+            Start a Project →
+          </a>
+          <a href="#services" class="inline-block border border-white/20 text-white px-10 py-4 text-xs font-black uppercase tracking-widest hover:border-white/50 hover:bg-white/5 transition rounded-sm">
+            Our Services
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Decorative line -->
+    <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+  </section>
+
+  <!-- CREDENTIALS BAR -->
+  <section class="bg-[#111] border-b border-white/5 py-5 px-6">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-center gap-8 md:gap-16">
+      <div class="flex items-center gap-3">
+        <div class="w-1 h-4 bg-white/20 rounded-full"></div>
+        <span class="text-white/50 text-[10px] font-bold uppercase tracking-widest">Certified Passive House Designer</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <div class="w-1 h-4 bg-white/20 rounded-full"></div>
+        <span class="text-white/50 text-[10px] font-bold uppercase tracking-widest">Council of Architecture (COA)</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <div class="w-1 h-4 bg-white/20 rounded-full"></div>
+        <span class="text-white/50 text-[10px] font-bold uppercase tracking-widest">AutoCAD · Autodesk Revit</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="py-32 px-6 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-20">
+        <span class="text-[#1a1a1a]/30 text-[10px] font-black uppercase tracking-[0.4em] mb-4 block">What We Do</span>
+        <h2 class="text-4xl md:text-5xl font-black text-[#1a1a1a] tracking-tight">Services</h2>
+        <div class="h-0.5 w-12 bg-[#1a1a1a] mt-6"></div>
+      </div>
+
+      <!-- Primary Service Card — Residential -->
+      <div class="service-card bg-[#1a1a1a] rounded-sm p-10 md:p-16 mb-6 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-white/[0.02] rounded-full -translate-y-1/2 translate-x-1/2"></div>
+        <div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <span class="text-white/30 text-[10px] font-black uppercase tracking-[0.4em] mb-6 block">Primary Service</span>
+            <h3 class="text-3xl md:text-4xl font-black text-white mb-6 tracking-tight">Residential Architectural Service</h3>
+            <div class="h-0.5 w-10 bg-white/30 mb-8"></div>
+            <p class="text-white/60 leading-relaxed mb-10 font-medium">
+              From conceptual sketches to permit-ready drawing sets. We convert your ideas and reference photos into complete architectural drawings tailored to your local building code — wherever you are.
+            </p>
+            <a href="#contact" class="inline-block bg-white text-[#1a1a1a] px-8 py-3.5 text-xs font-black uppercase tracking-widest hover:bg-slate-100 transition rounded-sm">
+              Request Drawings →
+            </a>
+          </div>
+          <div class="space-y-4">
+            <div class="text-[10px] font-black uppercase tracking-widest text-white/30 mb-6">Deliverables</div>
+            <div class="flex items-center gap-3"><div class="w-1 h-1 rounded-full bg-white/40 flex-shrink-0"></div><span class="text-white/70 text-sm font-medium">Architectural Floor Plans</span></div>
+            <div class="flex items-center gap-3"><div class="w-1 h-1 rounded-full bg-white/40 flex-shrink-0"></div><span class="text-white/70 text-sm font-medium">Foundation &amp; Framing Plans</span></div>
+            <div class="flex items-center gap-3"><div class="w-1 h-1 rounded-full bg-white/40 flex-shrink-0"></div><span class="text-white/70 text-sm font-medium">Exterior &amp; Interior Elevations</span></div>
+            <div class="flex items-center gap-3"><div class="w-1 h-1 rounded-full bg-white/40 flex-shrink-0"></div><span class="text-white/70 text-sm font-medium">Building Sections &amp; Details</span></div>
+            <div class="flex items-center gap-3"><div class="w-1 h-1 rounded-full bg-white/40 flex-shrink-0"></div><span class="text-white/70 text-sm font-medium">Roof Plans &amp; Drainage Details</span></div>
+            <div class="flex items-center gap-3"><div class="w-1 h-1 rounded-full bg-white/40 flex-shrink-0"></div><span class="text-white/70 text-sm font-medium">Permit Application Sets</span></div>
+            <div class="flex items-center gap-3"><div class="w-1 h-1 rounded-full bg-white/40 flex-shrink-0"></div><span class="text-white/70 text-sm font-medium">Site Plans</span></div>
+            <div class="flex items-center gap-3"><div class="w-1 h-1 rounded-full bg-white/40 flex-shrink-0"></div><span class="text-white/70 text-sm font-medium">As-Built Drawings</span></div>
+            <div class="flex items-center gap-3"><div class="w-1 h-1 rounded-full bg-white/40 flex-shrink-0"></div><span class="text-white/70 text-sm font-medium">Energy Compliance Documentation</span></div>
+            <div class="pt-4 mt-4 border-t border-white/10 flex gap-6">
+              <div>
+                <div class="text-[10px] font-black uppercase tracking-widest text-white/30 mb-1">Turnaround</div>
+                <div class="text-white font-bold text-sm">5–7 Business Days</div>
+              </div>
+              <div>
+                <div class="text-[10px] font-black uppercase tracking-widest text-white/30 mb-1">File Formats</div>
+                <div class="text-white font-bold text-sm">DWG · RVT · PDF</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Secondary Service Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="service-card border border-slate-100 rounded-sm p-8">
+          <span class="text-[#1a1a1a]/30 text-[10px] font-black uppercase tracking-[0.3em] mb-4 block">01</span>
+          <h4 class="text-xl font-black text-[#1a1a1a] mb-4 tracking-tight">Project Drawings</h4>
+          <div class="h-0.5 w-8 bg-[#1a1a1a]/20 mb-6"></div>
+          <p class="text-slate-500 text-sm leading-relaxed font-medium">
+            High-precision, permit-ready architectural and structural drafting tailored to local building codes. Revisions included until approved.
+          </p>
+        </div>
+
+        <div class="service-card border border-slate-100 rounded-sm p-8">
+          <span class="text-[#1a1a1a]/30 text-[10px] font-black uppercase tracking-[0.3em] mb-4 block">02</span>
+          <h4 class="text-xl font-black text-[#1a1a1a] mb-4 tracking-tight">BIM Modeling</h4>
+          <div class="h-0.5 w-8 bg-[#1a1a1a]/20 mb-6"></div>
+          <p class="text-slate-500 text-sm leading-relaxed font-medium">
+            Intelligent 3D Building Information Modeling using Autodesk Revit. Clash detection, quantity take-offs, and full lifecycle coordination.
+          </p>
+        </div>
+
+        <div class="service-card border border-slate-100 rounded-sm p-8">
+          <span class="text-[#1a1a1a]/30 text-[10px] font-black uppercase tracking-[0.3em] mb-4 block">03</span>
+          <h4 class="text-xl font-black text-[#1a1a1a] mb-4 tracking-tight">Energy Modeling</h4>
+          <div class="h-0.5 w-8 bg-[#1a1a1a]/20 mb-6"></div>
+          <p class="text-slate-500 text-sm leading-relaxed font-medium">
+            Data-driven simulations for Net-Zero, Passive House, and energy code compliance using PHPP and EnergyPlus. Certified on staff.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="grid grid-cols-1 lg:grid-cols-2 min-h-[620px] border-t border-slate-100">
+
+    <!-- Left dark panel -->
+    <div class="bg-[#1a1a1a] text-white p-12 md:p-20 flex flex-col justify-center">
+      <span class="text-white/30 text-[10px] font-black uppercase tracking-[0.4em] mb-8 block">Reach Out</span>
+      <h2 class="text-4xl md:text-5xl font-black mb-16 tracking-tight">Get in Touch</h2>
+      <div class="space-y-6">
+        <div>
+          <span class="text-white/30 text-[10px] font-black uppercase tracking-[0.3em] block mb-2">Email</span>
+          <a href="mailto:info@ndstudio.in" class="text-base font-bold hover:text-white/60 transition-colors">info@ndstudio.in</a>
+        </div>
+        <div class="pt-6 border-t border-white/10">
+          <span class="text-white/30 text-[10px] font-black uppercase tracking-[0.3em] block mb-3">Response Time</span>
+          <span class="text-white/70 text-sm font-medium">Within 24 hours</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right form panel -->
+    <div class="bg-white p-12 md:p-20 flex flex-col justify-center">
+      <form action="https://formsubmit.co/info@ndstudio.in" method="POST" class="space-y-10">
+        <!-- FormSubmit hidden config -->
+        <input type="hidden" name="_subject" value="New inquiry from ND Studio website" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="text" name="_honey" style="display:none" />
+        <!-- formsubmit target -->
+
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div>
+            <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">First Name</label>
+            <input name="first_name" type="text" required class="w-full border-b border-slate-900 py-2 outline-none focus:border-black transition-colors font-medium text-slate-900 bg-transparent" />
+          </div>
+          <div>
+            <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">Last Name</label>
+            <input name="last_name" type="text" class="w-full border-b border-slate-900 py-2 outline-none focus:border-black transition-colors font-medium text-slate-900 bg-transparent" />
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">Email *</label>
+          <input name="email" type="email" required class="w-full border-b border-slate-900 py-2 outline-none focus:border-black transition-colors font-medium text-slate-900 bg-transparent" />
+        </div>
+
+        <div>
+          <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">Message</label>
+          <textarea name="message" required rows="5" class="w-full border border-slate-900 p-4 outline-none focus:border-black transition-colors font-medium text-slate-900 resize-none bg-transparent"></textarea>
+        </div>
+
+        <div>
+          <button type="submit" class="bg-[#1a1a1a] text-white px-10 py-4 text-xs font-black uppercase tracking-widest hover:bg-slate-800 transition rounded-sm shadow-xl">
+            Send Message →
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#111] py-8 px-6 border-t border-white/5">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex flex-col items-center">
+      <img src="data:image/jpeg;base64,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" alt="ND Studio" class="h-14 w-auto" style="filter: invert(1); mix-blend-mode: screen; opacity: 0.5;" /><span class="text-white/40 text-[9px] font-semibold tracking-[0.35em] uppercase -mt-1">Studio</span>
+      </div>
+      <span class="text-white/30 text-[10px] font-bold uppercase tracking-widest">© 2023 ND Studio. All rights reserved.</span>
+    </div>
+  </footer>
+
+</body>
+</html>
