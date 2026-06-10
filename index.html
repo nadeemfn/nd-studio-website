@@ -207,27 +207,42 @@
         </div>
 
         <div>
-          <button type="submit" class="bg-[#1a1a1a] text-white px-10 py-4 text-xs font-black uppercase tracking-widest hover:bg-slate-800 transition rounded-sm shadow-xl">
+          <button id="submitBtn" type="submit" class="bg-[#1a1a1a] text-white px-10 py-4 text-xs font-black uppercase tracking-widest hover:bg-slate-800 transition rounded-sm shadow-xl">
             Send Message →
           </button>
-          <p id="formSuccess" class="hidden mt-6 text-emerald-600 font-bold text-sm">Thank you. Your message has been sent.</p>
+          <p id="formSuccess" class="hidden mt-6 text-emerald-600 font-bold text-sm">Thank you. Your message has been received.</p>
+          <p id="formError" class="hidden mt-6 text-red-500 font-bold text-sm">Something went wrong. Please try again.</p>
         </div>
       </form>
 
       <script>
-        function handleSubmit(e) {
+        async function handleSubmit(e) {
           e.preventDefault();
-          const first = document.getElementById('first_name').value.trim();
-          const last  = document.getElementById('last_name').value.trim();
-          const email = document.getElementById('email').value.trim();
-          const msg   = document.getElementById('message').value.trim();
-          const subject = encodeURIComponent('New Inquiry from ND Studio Website');
-          const body = encodeURIComponent(
-            'Name: ' + first + ' ' + last + '\nEmail: ' + email + '\n\nMessage:\n' + msg
-          );
-          window.location.href = 'mailto:info@ndstudio.in?subject=' + subject + '&body=' + body;
-          document.getElementById('contactForm').reset();
-          document.getElementById('formSuccess').classList.remove('hidden');
+          const btn = document.getElementById('submitBtn');
+          btn.textContent = 'Sending...';
+          btn.disabled = true;
+
+          const payload = {
+            first_name: document.getElementById('first_name').value.trim(),
+            last_name:  document.getElementById('last_name').value.trim(),
+            email:      document.getElementById('email').value.trim(),
+            message:    document.getElementById('message').value.trim()
+          };
+
+          try {
+            await fetch('https://nfn.ndstudio.in/webhook/nd-studio-contact', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload)
+            });
+            document.getElementById('contactForm').reset();
+            document.getElementById('formSuccess').classList.remove('hidden');
+          } catch {
+            document.getElementById('formError').classList.remove('hidden');
+          } finally {
+            btn.textContent = 'Send Message →';
+            btn.disabled = false;
+          }
         }
       </script>
     </div>
